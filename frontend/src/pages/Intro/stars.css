@@ -1,0 +1,89 @@
+/* stars.css */
+.stars,
+.stars2,
+.stars3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  background: transparent url("https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/star.png") repeat top center;
+  animation: animateStars 50s linear infinite;
+  opacity: 0.5;
+}
+
+.stars2 {
+  background-size: 3px;
+  animation: animateStars 100s linear infinite;
+  opacity: 0.3;
+}
+
+.stars3 {
+  background-size: 1.5px;
+  animation: animateStars 150s linear infinite;
+  opacity: 0.2;
+}
+@keyframes growBorder {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 80%;
+  }
+}
+
+.animate-grow-border {
+  animation: growBorder 1.2s ease-out forwards;
+  /* Optional centering & smooth transition */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* glowing */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
+  }
+  50% {
+    box-shadow: 0 0 15px white, 0 0 30px white, 0 0 45px white;
+  }
+  100% {
+    box-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
+  }
+}
+
+.glow-animation {
+  animation: glow 2s ease-in-out infinite;
+  border-radius: 9999px;
+}
+
+
+@keyframes rainbowBorder {
+  0% {
+    border-color: red;
+  }
+  25% {
+    border-color: orange;
+  }
+  50% {
+    border-color: yellow;
+  }
+  75% {
+    border-color: green;
+  }
+  100% {
+    border-color: blue;
+  }
+}
+
+.rainbow-glow {
+  border-width: 4px;
+  border-style: solid;
+  animation: rainbowBorder 2s linear infinite;
+  border-radius: 50%;
+}
