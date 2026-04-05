@@ -172,7 +172,7 @@ import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import * as THREE from "three";
-import API from "../../services/api";
+import API from "../../services/Api";
 
 import left_arrow from "../../assets/left_arrow.png";
 import "./Projects.css";
