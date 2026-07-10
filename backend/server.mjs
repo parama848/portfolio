@@ -17,7 +17,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 
 connecDB();
 app.use(cors({
-     origin: ["http://localhost:5173","http://localhost:5174","https://portfolio-paranthaman-frontend.vercel.app/"
+     origin: ["http://localhost:5173","http://localhost:5174","https://portfolio-paranthaman-frontend.vercel.app"
     ]
     }));
 app.use('/api', projectRoutes);
