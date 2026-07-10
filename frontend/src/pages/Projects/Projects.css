@@ -1,0 +1,85 @@
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.7s ease-in-out;
+}
+
+/* Rotate card */
+.flip-inner.active {
+  transform: rotateY(180deg);
+}
+
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  border-top-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+
+  overflow: hidden;
+}
+
+.flip-front {
+  z-index: 2;
+  
+}
+
+.flip-back {
+
+  transform: rotateY(180deg);
+  background: rgba(0, 0, 0, 0.92);
+  color: white;
+
+  padding: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid white;
+
+  box-sizing: border-box;
+}
+
+.flip-back h2 {
+  
+  margin-bottom: 1rem;
+  
+}
+.flip-back{
+  box-shadow: 5px 5px 5px white;
+}
+
+.flip-back p {
+  border: 2px white;
+  line-height: 1.8;
+  color: rgb(209, 213, 219);
+
+  overflow-y: auto;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
