@@ -1,5 +1,50 @@
+.projects-section {
+  position: relative;
+  min-height: 100vh;
+  background: black;
+  color: white;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.projects-content {
+  position: relative;
+  z-index: 10;
+  padding-top: 20px;
+}
+
+.back-btn {
+  width: 42px;
+  height: 42px;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  transform: scale(1.08);
+}
+
+.cards-container {
+  padding-top: 50px;
+  overflow-x: auto;
+}
+
+.cards-wrapper {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+  padding: 20px;
+}
+
 .flip-card {
-  perspective: 1000px;
+  width: 340px;
+  height: 540px;
+  flex-shrink: 0;
+  perspective: 1200px;
+  cursor: pointer;
 }
 
 .flip-inner {
@@ -7,72 +52,203 @@
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.7s ease-in-out;
+  transition: transform 0.8s ease;
 }
 
-/* Rotate card */
 .flip-inner.active {
   transform: rotateY(180deg);
 }
-
 
 .flip-front,
 .flip-back {
   position: absolute;
   inset: 0;
+
   width: 100%;
   height: 100%;
 
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 
-  border-top-left-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem;
+  border-top-left-radius: 28px;
+  border-bottom-right-radius: 28px;
 
   overflow: hidden;
 }
 
 .flip-front {
   z-index: 2;
-  
+
+  background: rgba(0, 0, 0, 0.72);
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.2
+  );
+
+  padding: 22px;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .flip-back {
-
   transform: rotateY(180deg);
-  background: rgba(0, 0, 0, 0.92);
-  color: white;
 
-  padding: 1.5rem;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.95
+  );
+
+  border: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.2
+  );
+
+  padding: 24px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
 
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 0 30px rgba(
+    255,
+    255,
+    255,
+    0.15
+  );
+}
 
+.project-image {
+  width: 100%;
+  height: 240px;
+
+  object-fit: cover;
+
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+  transition: 0.35s ease;
+}
+
+.project-image:hover {
+  transform: scale(1.03);
+}
+
+.project-title {
+  margin-top: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.tech-badge {
+  background: rgba(
+    255,
+    255,
+    255,
+    0.08
+  );
+
+  border: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.15
+  );
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+}
+
+.project-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.live-btn,
+.code-btn {
+  flex: 1;
+
+  height: 50px;
+
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.live-btn {
+  background: white;
+  color: black;
+}
+
+.code-btn {
   border: 1px solid white;
+  color: white;
+}
 
-  box-sizing: border-box;
+.live-btn:hover,
+.code-btn:hover {
+  transform: translateY(-3px);
 }
 
 .flip-back h2 {
-  
-  margin-bottom: 1rem;
-  
-}
-.flip-back{
-  box-shadow: 5px 5px 5px white;
+  font-size: 1.8rem;
+  margin-bottom: 18px;
 }
 
 .flip-back p {
-  border: 2px white;
   line-height: 1.8;
   color: rgb(209, 213, 219);
 
   overflow-y: auto;
+}
+
+.scroll-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 30px;
+
+  color: rgb(156, 163, 175);
+
+  animation: pulse 2s infinite;
+}
+
+.scroll-indicator p {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 .hide-scrollbar {
@@ -82,4 +258,110 @@
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* Tablet */
+
+@media (max-width: 1024px) {
+  .flip-card {
+    width: 300px;
+    height: 500px;
+  }
+
+  .project-image {
+    height: 210px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 16px;
+  }
+
+  .cards-wrapper {
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .flip-card {
+    width: 280px;
+    height: 470px;
+  }
+
+  .flip-front {
+    padding: 18px;
+  }
+
+  .project-image {
+    height: 180px;
+  }
+
+  .project-title,
+  .flip-back h2 {
+    font-size: 1.35rem;
+  }
+
+  .flip-back {
+    padding: 18px;
+  }
+
+  .flip-back p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .project-buttons {
+    flex-direction: column;
+  }
+
+  .live-btn,
+  .code-btn {
+    width: 100%;
+    height: 46px;
+  }
+
+  .scroll-indicator p {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+}
+
+/* Small mobile */
+
+@media (max-width: 480px) {
+  .flip-card {
+    width: 250px;
+    height: 430px;
+  }
+
+  .project-image {
+    height: 160px;
+  }
+
+  .project-title,
+  .flip-back h2 {
+    font-size: 1.15rem;
+  }
+
+  .tech-badge {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .flip-back p {
+    font-size: 13px;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
