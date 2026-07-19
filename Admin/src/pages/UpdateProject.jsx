@@ -143,7 +143,7 @@ const UpdateProject = () => {
           value={formData.title}
           onChange={handleChange}
           placeholder="Title"
-          className="w-full border px-5 border-gray-300 rounded-lg px-5 py-4 text-lg outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full rounded-xl border border-slate-200 bg-white px-5 py-4 text-base text-slate-900 outline-none transition-all duration-200 placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
         />
 
         {/* Description */}
